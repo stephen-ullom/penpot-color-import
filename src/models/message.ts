@@ -1,4 +1,4 @@
-type MessageType = "generate-colors";
+type MessageType = "import-colors";
 
 interface Message {
   type: MessageType;

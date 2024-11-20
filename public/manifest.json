@@ -1,5 +1,5 @@
 {
-  "name": "Color import",
+  "name": "Color Import",
   "code": "plugin.js",
   "description": "Bulk import colors",
   "permissions": [

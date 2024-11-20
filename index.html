@@ -3,28 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Penpot plugin example</title>
+    <title>Color Import</title>
   </head>
   <body>
     <div class="column">
-      <div class="padding"></div>
-
       <ui-space height="8"></ui-space>
 
-      <p class="body-m">Colors in YAML form.</p>
+      <p class="body-s">Colors separated by new lines.</p>
+      <p class="body-s">Example: "group/name: #FFFFFF".</p>
 
-      <ui-space height="8"></ui-space>
+      <ui-space height="12"></ui-space>
 
       <textarea class="input textarea" id="data-input"></textarea>
 
-      <ui-space height="8"></ui-space>
+      <ui-space height="12"></ui-space>
 
       <button
         type="button"
         data-appearance="primary"
-        data-handler="generate-colors"
+        data-handler="import-colors"
       >
-        Generate Colors
+        Import
       </button>
     </div>
 

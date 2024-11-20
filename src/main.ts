@@ -13,9 +13,9 @@ window.addEventListener("message", (event) => {
 
 // Generate colors
 document
-  .querySelector("[data-handler='generate-colors']")
+  .querySelector("[data-handler='import-colors']")
   ?.addEventListener("click", () => {
     var textarea = document.querySelector("#data-input") as HTMLTextAreaElement;
 
-    parent.postMessage({ type: "generate-colors", data: textarea.value }, "*");
+    parent.postMessage({ type: "import-colors", data: textarea.value }, "*");
   });
