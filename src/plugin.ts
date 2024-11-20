@@ -1,14 +1,22 @@
-penpot.ui.open("Penpot plugin starter template", `?theme=${penpot.theme}`);
+penpot.ui.open("Bulk Import", `?theme=${penpot.theme}`, {
+  width: 320,
+  height: 320,
+});
 
-penpot.ui.onMessage<string>((message) => {
-  if (message === "create-text") {
-    const text = penpot.createText("Hello world!");
+penpot.ui.onMessage<Message>((message) => {
+  if (message.type == "generate-colors") {
+    try {
+      const lines = message.data.split("\n").filter((value) => value);
 
-    if (text) {
-      text.x = penpot.viewport.center.x;
-      text.y = penpot.viewport.center.y;
+      for (const line of lines) {
+        const [name, value] = line.split(":");
 
-      penpot.selection = [text];
+        const color = penpot.library.local.createColor();
+        color.name = name.trim();
+        color.color = value.trim();
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 });

@@ -1,17 +1,21 @@
 import "./style.css";
+import "./elements/space";
 
-// get the current theme from the URL
+// Theme
 const searchParams = new URLSearchParams(window.location.search);
 document.body.dataset.theme = searchParams.get("theme") ?? "light";
 
-document.querySelector("[data-handler='create-text']")?.addEventListener("click", () => {
-  // send message to plugin.ts
-  parent.postMessage("create-text", "*");
-});
-
-// Listen plugin.ts messages
 window.addEventListener("message", (event) => {
   if (event.data.source === "penpot") {
     document.body.dataset.theme = event.data.theme;
   }
 });
+
+// Generate colors
+document
+  .querySelector("[data-handler='generate-colors']")
+  ?.addEventListener("click", () => {
+    var textarea = document.querySelector("#data-input") as HTMLTextAreaElement;
+
+    parent.postMessage({ type: "generate-colors", data: textarea.value }, "*");
+  });
